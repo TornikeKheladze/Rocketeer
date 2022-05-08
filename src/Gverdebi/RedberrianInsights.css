@@ -1,0 +1,20 @@
+.r_i_form {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  text-align: left;
+  gap: 15px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.r_i_form label {
+  display: inline;
+}
+
+.r_i_form p {
+  color: black;
+  text-decoration: none;
+  cursor: auto;
+}

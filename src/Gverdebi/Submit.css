@@ -1,0 +1,30 @@
+.Submit,
+.Thanks {
+  background-color: black;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+  z-index: 100;
+}
+.Submit button {
+  display: inline-block;
+  height: 10%;
+  width: 20%;
+  border-radius: 50px;
+  font-size: x-large;
+  color: white;
+  cursor: pointer;
+  background-color: rgba(254, 59, 31, 1);
+}

@@ -1,0 +1,35 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+}
+
+.form input {
+  height: 30px;
+}
+.form .button {
+  border-radius: 0;
+  width: 60%;
+  background-color: rgba(254, 59, 31, 1);
+  align-self: flex-end;
+}
+
+.skillDiv {
+  border: 1px solid black;
+}
+
+.skillDiv p {
+  color: black;
+  text-decoration: none;
+  text-align: left;
+  font-size: 11px;
+  cursor: auto;
+  display: inline-block;
+}
+.skillDiv button {
+  position: relative;
+  text-align: center;
+  color: red;
+  right: -10px;
+}

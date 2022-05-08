@@ -1,0 +1,22 @@
+.covidForm {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  text-align: left;
+  gap: 15px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.covidForm label {
+  display: inline;
+}
+#covidStuff {
+  margin-bottom: 10px;
+}
+.covidForm p {
+  color: black;
+  text-decoration: none;
+  cursor: auto;
+}
