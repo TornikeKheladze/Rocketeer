@@ -14,22 +14,43 @@ const RedberrianInsights = (props) => {
       <form className="r_i_form" onChange={props.formChange}>
         <p>Would you attend Devtalks and maybe also organize your own?</p>
         <div>
-          <input type="radio" id="yes" name="devTalk" value="yes" />
+          {props.pageData.attendDevtalk === "true" ? (
+            <input type="radio" id="yes" name="devTalk" value={true} checked />
+          ) : (
+            <input type="radio" id="yes" name="devTalk" value={true} />
+          )}
+
           <label htmlFor="yes">Yes</label>
         </div>
         <div>
-          <input type="radio" id="no" name="devTalk" value="no" />
+          {props.pageData.attendDevtalk === "false" ? (
+            <input type="radio" id="no" name="devTalk" value={false} checked />
+          ) : (
+            <input type="radio" id="no" name="devTalk" value={false} />
+          )}
+
           <label htmlFor="no">No</label>
         </div>
-        <p>What would you speak about at Devtalk?</p>
-        <textarea
-          rows={5}
-          cols={18}
-          placeholder="I would..."
-          name="speak"
-        ></textarea>
+        {props.pageData.attendDevtalk === "true" ? (
+          <div>
+            <p>What would you speak about at Devtalk?</p>
+            <textarea
+              rows={5}
+              cols={18}
+              placeholder="I would..."
+              name="speak"
+              value={props.pageData.speakAbout}
+            ></textarea>
+          </div>
+        ) : null}
+
         <p>Tell us something special</p>
-        <textarea rows={3} cols={18} name="special"></textarea>
+        <textarea
+          rows={3}
+          cols={18}
+          name="special"
+          value={props.pageData.somethingSpecial}
+        ></textarea>
       </form>
     </Page>
   );

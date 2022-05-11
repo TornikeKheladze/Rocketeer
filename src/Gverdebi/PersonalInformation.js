@@ -11,10 +11,18 @@ const PersonalInformation = (props) => {
     >
       <h1>Hey, Rocketeer, what are your coordinates?</h1>
       <form className="form" onChange={props.change}>
-        <input type="text" placeholder="First Name" />
-        <input type="text" placeholder="Last Name" />
-        <input type="email" placeholder="E-mail" />
-        <input type="tel" placeholder="+995" />
+        <input
+          type="text"
+          placeholder="First Name"
+          value={props.values.firstName}
+        />
+        <input
+          type="text"
+          placeholder="Last Name"
+          value={props.values.lastName}
+        />
+        <input type="email" placeholder="E-mail" value={props.values.Email} />
+        <input type="tel" placeholder="+995" value={props.values.num} />
       </form>
     </Page>
   );

@@ -14,51 +14,118 @@ const Covid = (props) => {
       <form className="covidForm" onChange={props.formChange}>
         <p>how would you prefer to work?</p>
         <div>
-          <input
-            type="radio"
-            id="sairme_office"
-            name="work"
-            value="sairme_office"
-          />
+          {props.pageData.work_place === "sairme_office" ? (
+            <input
+              type="radio"
+              id="sairme_office"
+              name="work"
+              value="sairme_office"
+              checked
+            />
+          ) : (
+            <input
+              type="radio"
+              id="sairme_office"
+              name="work"
+              value="sairme_office"
+            />
+          )}
+
           <label htmlFor="sairme_office">From Sairme Office</label>
         </div>
         <div>
-          <input type="radio" id="home" name="work" value="home" />
+          {props.pageData.work_place === "home" ? (
+            <input type="radio" id="home" name="work" value="home" checked />
+          ) : (
+            <input type="radio" id="home" name="work" value="home" />
+          )}
+
           <label htmlFor="home">From Home</label>
         </div>
         <div>
-          <input type="radio" id="hybrid" name="work" value="hybrid" />
+          {props.pageData.work_place === "hybrid" ? (
+            <input
+              type="radio"
+              id="hybrid"
+              name="work"
+              value="hybrid"
+              checked
+            />
+          ) : (
+            <input type="radio" id="hybrid" name="work" value="hybrid" />
+          )}
+
           <label htmlFor="hybrid">Hybrid</label>
         </div>
-        <p>Did you contact covid 19? :(</p>
+        <p>Did you contact covid 19? :{"("}</p>
         <div>
-          <input type="radio" id="yes" name="hadCovid" value="yes" />
+          {props.pageData.hadCovid === "true" ? (
+            <input type="radio" id="yes" name="hadCovid" checked value={true} />
+          ) : (
+            <input type="radio" id="yes" name="hadCovid" value={true} />
+          )}
+
           <label htmlFor="yes">Yes</label>
         </div>
         <div>
-          <input type="radio" id="no" name="hadCovid" value="no" />
+          {props.pageData.hadCovid === "false" ? (
+            <input type="radio" id="no" name="hadCovid" checked value={false} />
+          ) : (
+            <input type="radio" id="no" name="hadCovid" value={false} />
+          )}
+
           <label htmlFor="no">No</label>
         </div>
-        {props.pageData.hadCovid === "yes" ? (
+        {props.pageData.hadCovid === "true" ? (
           <div>
             <p>When?</p>
-            <input type="date" name="whenCovid" />
+            <input
+              type="date"
+              name="whenCovid"
+              value={props.pageData.when_had_covid}
+            />
           </div>
         ) : null}
 
         <p>Have you been vaccinated?</p>
         <div>
-          <input type="radio" id="vaccineYes" name="vaccine" value="Yes" />
+          {props.pageData.vaccinated === "true" ? (
+            <input
+              type="radio"
+              id="vaccineYes"
+              name="vaccine"
+              checked
+              value={true}
+            />
+          ) : (
+            <input type="radio" id="vaccineYes" name="vaccine" value={true} />
+          )}
+
           <label htmlFor="vaccineYes">Yes</label>
         </div>
         <div>
-          <input type="radio" id="vaccineNo" name="vaccine" value="no" />
+          {props.pageData.vaccinated === "false" ? (
+            <input
+              type="radio"
+              id="vaccineNo"
+              name="vaccine"
+              value="no"
+              checked
+            />
+          ) : (
+            <input type="radio" id="vaccineNo" name="vaccine" value="no" />
+          )}
+
           <label htmlFor="vaccineNo">No</label>
         </div>
-        {props.pageData.vaccinated === "Yes" ? (
+        {props.pageData.vaccinated === "true" ? (
           <div>
             <p>When did you get your last covid vaccine?</p>
-            <input type="date" name="whenVaccine" />
+            <input
+              type="date"
+              name="whenVaccine"
+              value={props.pageData.when_vaccinated}
+            />
           </div>
         ) : null}
       </form>

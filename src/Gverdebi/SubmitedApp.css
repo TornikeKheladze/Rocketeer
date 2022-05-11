@@ -1,0 +1,27 @@
+.SubmitedApp {
+  margin-top: 15px;
+  display: grid;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.SubmitedApp header {
+  color: rgba(254, 59, 31, 1);
+  text-decoration: underline;
+  font-style: italic;
+}
+.SubmitedApp p {
+  margin: 15px;
+  text-decoration: none;
+  cursor: auto;
+  color: black;
+}
+.personal {
+  display: flex;
+  flex-direction: column;
+}

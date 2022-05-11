@@ -8,6 +8,7 @@ import RedberrianInsights from "./Gverdebi/RedberrianInsights";
 import TechnicalSkillnet from "./Gverdebi/TechnicalSkillnet";
 import Submit from "./Gverdebi/Submit";
 import Thanks from "./Gverdebi/Thanks";
+import SubmitedApp from "./Gverdebi/SubmitedApp";
 import axios from "axios";
 
 class App extends Component {
@@ -17,9 +18,15 @@ class App extends Component {
     chosenSkill: null,
     years: null,
     technicalSkillnetData: [],
-    personalInformationData: {},
+    personalInformationData: {
+      firstName: "",
+      lastName: "",
+      Email: "",
+      num: "",
+    },
     CovidPageData: { hadCovid: null, vaccinated: null },
     redberrianInsightsData: {},
+    data: { skills: [] },
   };
 
   buttonClickHandler = (e) => {
@@ -69,7 +76,25 @@ class App extends Component {
     //   .then((res) => {
     //     console.log(res);
     //   });
+
     console.log(data);
+    setTimeout(() => {
+      this.setState({
+        pageId: 0,
+        chosenSkill: null,
+        years: null,
+        technicalSkillnetData: [],
+        personalInformationData: {
+          firstName: "",
+          lastName: "",
+          Email: "",
+          num: "",
+        },
+        CovidPageData: { hadCovid: null, vaccinated: null },
+        redberrianInsightsData: {},
+        data: data,
+      });
+    }, 3000);
   };
   /////////////PersonalInformation
   onFormChanged = (e) => {
@@ -211,11 +236,20 @@ class App extends Component {
       });
     }
   };
+  showSubmitedApp = () => {
+    this.setState({ pageId: 7 });
+  };
 
   render() {
     let pages = [
-      <Langing click={this.startBtnHandler} />,
-      <PersonalInformation change={this.onFormChanged} />,
+      <Langing
+        click={this.startBtnHandler}
+        submitedApp={this.showSubmitedApp}
+      />,
+      <PersonalInformation
+        values={this.state.personalInformationData}
+        change={this.onFormChanged}
+      />,
       <TechnicalSkillnet
         dropdown={this.onDropdownChange}
         addSkill={this.onAddSkillClick}
@@ -228,15 +262,20 @@ class App extends Component {
         formChange={this.onCovidFormChanged}
         pageData={this.state.CovidPageData}
       />,
-      <RedberrianInsights formChange={this.onRedberrianFormChange} />,
+      <RedberrianInsights
+        pageData={this.state.redberrianInsightsData}
+        formChange={this.onRedberrianFormChange}
+      />,
       <Submit click={this.goBackHandler} submit={this.submitSubmitHandler} />,
       <Thanks />,
+      <SubmitedApp data={this.state.data} />,
     ];
     let button = null;
     if (
       this.state.pageId !== 0 &&
       this.state.pageId !== 5 &&
-      this.state.pageId !== 6
+      this.state.pageId !== 6 &&
+      this.state.pageId !== 7
     ) {
       button = (
         <Buttons
@@ -249,7 +288,7 @@ class App extends Component {
     return (
       <div className="App">
         {pages[this.state.pageId]}
-        {/* {pages[5]} */}
+        {/* {pages[7]} */}
         {button}
       </div>
     );
